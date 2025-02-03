@@ -1,0 +1,14 @@
+name: Deploy Dist
+# on: [push, workflow_dispatch]  // this can be also written as
+on:
+  - push
+  - workflow_dispatch
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        run: |
+          echo "Cloning repo..."
+          echo "${{tojson(github)}}"
+          git clone https://github.com/abhykmr/${{github.repository}}.git
